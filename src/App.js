@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { ChakraProvider, Box } from '@chakra-ui/react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
+import ProductList from './components/ProductList';
+import Cart from './components/Cart';
+import Features from './components/Features';
+import Navbar from './components/Navbar';
+import Contact from './pages/Contacts'; 
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <CartProvider>
+            <ChakraProvider>
+                <Router>
+                    <Navbar />
+                    <Box p={5}>
+                        <Routes>
+                            <Route path="/" element={<ProductList />} />
+                            <Route path="/cart" element={<Cart />} />
+                            <Route path="/features" element={<Features />} />
+                            <Route path="/contacts" element={<Contact/>}/>
+                        </Routes>
+                    </Box>
+                </Router>
+            </ChakraProvider>
+        </CartProvider>
+    );
 }
 
 export default App;

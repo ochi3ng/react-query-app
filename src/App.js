@@ -6,7 +6,8 @@ import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import Features from './components/Features';
 import Navbar from './components/Navbar';
-import Contact from './pages/Contacts'; 
+import Contact from './pages/Contacts';
+import Footer from './components/Footer'
 
 function App() {
     return (
@@ -19,11 +20,12 @@ function App() {
                             <Route path="/" element={<ProductList />} />
                             <Route path="/cart" element={<Cart />} />
                             <Route path="/features" element={<Features />} />
-                            <Route path="/contacts" element={<Contact/>}/>
+                            <Route path="/contacts" element={<Contact />} />
                         </Routes>
                     </Box>
                 </Router>
             </ChakraProvider>
+            <Footer />
         </CartProvider>
     );
 }

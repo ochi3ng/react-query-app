@@ -1,32 +1,5 @@
-// import React from 'react';
-// import { Box, Flex, Button } from '@chakra-ui/react';
-// import { Link } from 'react-router-dom';
-// import CartIcon from './CartIcon';
-
-// const Navbar = () => {
-//     return (
-//         <Flex as="nav" p={5} bg="teal.500" color="white" justify="space-between" align="center">
-//             <Box>
-//                 <Button as={Link} to="/" variant="link" colorScheme="whiteAlpha" mr={4}>
-//                     Home
-//                 </Button>
-//                 <Button as={Link} to="/features" variant="link" colorScheme="whiteAlpha" mr={4}>
-//                     Features
-//                 </Button>
-//                 <Button as={Link} to="/cart" variant="link" colorScheme="whiteAlpha">
-//                     Cart
-//                 </Button>
-//             </Box>
-//             <Box>
-//                 <CartIcon />
-//             </Box>
-//         </Flex>
-//     );
-// };
-
-// export default Navbar;
 import React from 'react';
-import { Box, Flex, Heading, Spacer, HStack, Button, Link as ChakraLink } from '@chakra-ui/react';
+import { Box, Flex, Heading, Spacer, HStack, Button, Link as ChakraLink, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import CartIcon from './CartIcon';
 
@@ -42,13 +15,24 @@ const Navbar = () => {
                     <ChakraLink as={Link} to="/" color="white" _hover={{ textDecoration: 'none' }}>
                         Home
                     </ChakraLink>
-                    <ChakraLink as={Link} to="/Features" color="white" _hover={{ textDecoration: 'none' }}>
+                    <ChakraLink as={Link} to="/features" color="white" _hover={{ textDecoration: 'none' }}>
                         Features
                     </ChakraLink>
-                    <ChakraLink as={Link} to="/Contacts" color="white" _hover={{ textDecoration: 'none' }}>
+                    <ChakraLink as={Link} to="/contacts" color="white" _hover={{ textDecoration: 'none' }}>
                         Contact
                     </ChakraLink>
-                    <CartIcon />
+                    <Menu>
+                        <MenuButton as={Button} colorScheme="teal" variant="link" color="white" _hover={{ textDecoration: 'none' }}>
+                            More Products
+                        </MenuButton>
+                        <MenuList>
+                            <MenuItem as={Link} to="/products/shoes">Shoes</MenuItem>
+                            <MenuItem as={Link} to="/products/dresses">Dresses</MenuItem>
+                            <MenuItem as={Link} to="/products/suits">Suits</MenuItem>
+                            <MenuItem as={Link} to="/products/tshirts">T-Shirts</MenuItem>
+                        </MenuList>
+                    </Menu>
+                    <CartIcon aria-label="Cart" />
                 </HStack>
             </Flex>
         </Box>
